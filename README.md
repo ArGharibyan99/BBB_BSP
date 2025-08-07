@@ -9,3 +9,7 @@ BeagleBone Black BSP source codes.
     - sources from - https://github.com/barebox/barebox.git
     - version      - v2017.02.0
 
+- kernel 
+    - sources from - https://github.com/torvalds/linux.git
+    - version      - v4.9
+
