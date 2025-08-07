@@ -1,0 +1,27 @@
+if ARCH_SOCFPGA
+
+config ARCH_TEXT_BASE
+	hex
+	default 0x0
+
+config ARCH_SOCFPGA_XLOAD
+	bool
+	prompt "Build preloader image"
+
+config ARCH_TEXT_BASE
+	hex
+	default 0x00100000 if MACH_SOCFPGA_CYCLONE5
+
+config MACH_SOCFPGA_ALTERA_SOCDK
+	bool "Altera SoCFPGA Development Kit"
+
+config MACH_SOCFPGA_EBV_SOCRATES
+	bool "EBV Socrates"
+
+config MACH_SOCFPGA_TERASIC_DE0_NANO_SOC
+	bool "Terasic DE0-NANO-SoC aka Atlas"
+
+config MACH_SOCFPGA_TERASIC_SOCKIT
+	bool "Terasic SoCKit"
+
+endif

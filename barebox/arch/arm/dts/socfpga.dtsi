@@ -1,0 +1,48 @@
+/ {
+	chosen {
+		environment@0 {
+			compatible = "barebox,environment";
+			device-path = &mmc, "partname:1";
+			file-path = "barebox.env";
+		};
+	};
+
+	aliases {
+		mmc0 = &mmc;
+	};
+
+	soc {
+		qspi: spi@ff705000 {
+			compatible = "cdns,qspi-nor";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0xff705000 0x1000>,
+			      <0xffa00000 0x1000>;
+			interrupts = <0 151 4>;
+			ext-decoder = <0>;  /* external decoder */
+			fifo-depth = <128>;
+			clocks = <&qspi_clk>;
+			clock-names = "qspi_clk";
+			status = "disabled";
+		};
+       };
+};
+&osc2 {
+	clock-frequency = <0>;
+};
+
+&f2s_periph_ref_clk {
+	clock-frequency = <0>;
+};
+
+&f2s_sdram_ref_clk {
+	clock-frequency = <0>;
+};
+
+&watchdog0 {
+	resets = <&rst L4WD0_RESET>;
+};
+
+&watchdog1 {
+	resets = <&rst L4WD1_RESET>;
+};
