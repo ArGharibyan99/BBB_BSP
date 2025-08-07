@@ -1,0 +1,24 @@
+if MACH_MIPS_ATH79
+
+config ARCH_TEXT_BASE
+	hex
+	default 0xa0800000
+
+choice
+	prompt "Board type"
+
+config BOARD_TPLINK_MR3020
+	bool "TP-LINK MR3020"
+	select HAVE_PBL_IMAGE
+	select HAVE_IMAGE_COMPRESSION
+	select HAS_NMON
+
+config BOARD_BLACK_SWIFT
+	bool "Black Swift"
+	select HAVE_PBL_IMAGE
+	select HAVE_IMAGE_COMPRESSION
+	select HAS_NMON
+
+endchoice
+
+endif
